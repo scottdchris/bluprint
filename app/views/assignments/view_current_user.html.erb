@@ -1,2 +1,27 @@
-<h1>Assignments#view_current_user</h1>
-<p>Find me in app/views/assignments/view_current_user.html.erb</p>
+<% content_for :thead do %>
+  <th>#</th>
+  <th>Title</th>
+  <th>Score</th>
+  <th>Instructor</th>
+<% end %>
+
+<% content_for :tbody do %>
+  <% @collection.each do |assign| %>
+    <tr>
+      <td>
+        <%= assign.id %>
+      </td>
+      <td>
+        <%= link_to view_assignment_path(assign.id) do %>
+          <%= assign.authorable_assignment.title %>
+        <% end %>
+      </td>
+      <td>
+        <%= score(assign) %>
+      </td>
+      <td>
+        <%= assign.authorable_assignment.user.name %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>

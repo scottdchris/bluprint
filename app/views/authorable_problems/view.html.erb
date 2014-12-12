@@ -1,2 +1,42 @@
-<h1>AuthorableProblems#view</h1>
-<p>Find me in app/views/authorable_problems/view.html.erb</p>
+<% content_for :thead do %>
+  <th>#</th>
+  <th>Problem</th>
+  <th>Author</th>
+  <th></th>
+  <th></th>
+<% end %>
+
+<% content_for :tbody do %>
+  <% @collection.each do |auth_prob| %>
+    <tr>
+      <td><%= auth_prob.id %></td>
+      <td><%= auth_prob.problem_text %></td>
+      <td><%= auth_prob.user.name %></td>
+      <td>
+        <%= link_to(
+          edit_problem_path(auth_prob.id),
+          data: {
+            toggle: 'tooltip',
+            title: 'Edit',
+            placement: 'top'
+          }
+        ) do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to(
+          delete_auth_problem_path(auth_prob.id),
+          method: :delete,
+          data: {
+            toggle: 'tooltip',
+            title: 'Delete',
+            placement: 'top'
+          }
+        ) do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>

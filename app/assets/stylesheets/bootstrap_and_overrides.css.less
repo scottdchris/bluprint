@@ -1,6 +1,28 @@
 @import "twitter/bootstrap/bootstrap";
 
-body { padding-top: 70px }
+.navbar {
+  margin: 0;
+}
+
+.alert {
+  display: inline-block;
+}
+
+.alert-notice {
+  .alert-success;
+}
+
+.alert-alert {
+  .alert-danger;
+}
+
+.page-header {
+  margin-top: 0;
+}
+
+.pagination {
+  text-align:center;
+}
 
 // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
@@ -17,7 +39,7 @@ body { padding-top: 70px }
 @import "fontawesome/font-awesome";
 
 // Glyphicons
-//@import "twitter/bootstrap/glyphicons.less";
+// @import "twitter/bootstrap/glyphicons.less";
 
 // Your custom LESS stylesheets goes here
 //
@@ -29,3 +51,8 @@ body { padding-top: 70px }
 //
 // Example:
 // @link-color: #ff0000;
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('/assets/glyphicons-halflings-regular.eot');
+    src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}

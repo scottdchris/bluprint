@@ -12,7 +12,42 @@
  *
  *= require_tree .
  *= require_self
+ *= require joint.nojquery
  */
- 
-.form-container { width: 360px; margin: auto }
-.notifications-container { width: 540px; margin: auto }
+
+body {
+  padding-top: 70px;
+}
+
+h3 {
+  display: inline-block;
+}
+
+.content-container {
+  width: 800px;
+  margin: auto;
+}
+
+.form-container {
+  width: 360px;
+  margin: auto;
+}
+
+.buttons {
+  display: inline-block;
+  float: right;
+  margin-top: 20px;
+}
+
+.remember {
+	display: inline-block;
+}
+
+.forgot {
+	display: inline-block;
+	float: right;
+}
+
+.login {
+	display: block;
+}

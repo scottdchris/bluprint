@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= @problem.authorable_problem.problem_text %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div id="paper"></div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'diagram' %>

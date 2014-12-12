@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require joint.nojquery
+//= require joint.shapes.erd
 //= require_tree .
+//= stub diagram
+//= stub ajax

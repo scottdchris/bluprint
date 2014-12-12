@@ -1,2 +1,31 @@
-<h1>Users#view_instructors</h1>
-<p>Find me in app/views/users/view_instructors.html.erb</p>
+<% content_for :thead do %>
+  <th>#</th>
+  <th>Name</th>
+  <th></th>
+<% end %>
+
+<% content_for :tbody do %>
+  <% @collection.each do |instructor| %>
+    <tr>
+      <td>
+        <%= instructor.id %>
+      </td>
+      <td>
+        <%= instructor.name %>
+      </td>
+      <td>
+        <%= link_to(
+          remove_student_path(i_id: current_user.id, s_id: instructor.id),
+          method: :delete,
+          data: {
+            toggle: 'tooltip',
+            title: 'Remove',
+            placement: 'top'
+          }
+        ) do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>

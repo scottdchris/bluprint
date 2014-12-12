@@ -1,0 +1,61 @@
+<% content_for :thead do %>
+  <th>#</th>
+  <th>Name</th>
+  <th></th>
+<% end %>
+
+<% content_for :buttons do %>
+
+  <span class="buttons">
+    <%= link_to('Add', manage_students_add_path,
+      method: 'get',
+      class: 'btn btn-default',
+      remote: true,
+      data: {
+        toggle: 'modal',
+        target: '#selectStudents'
+    }) %>
+  </span>
+
+  <div class="modal fade"
+    id="selectStudents"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add Students</h4>
+        </div>
+
+        <div class="modal-body"><div id="ajaxTarget"></div></div>
+
+      </div>
+    </div>
+
+  </div>
+<% end %>
+
+<% content_for :tbody do %>
+  <% @collection.each do |student| %>
+    <tr>
+      <td>
+        <%= student.id %>
+      </td>
+      <td>
+        <%= student.name %>
+      </td>
+      <td>
+        <%= link_to remove_student_path(i_id: current_user.id, s_id: student.id), method: :delete do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+  <%= javascript_include_tag 'ajax' %>
+<% end %>
